@@ -1,14 +1,24 @@
 # Xiaomi-Mijia-Bluetooth-Temperature-and-Humidity-Sensor-V2
 <img src="./product.jpg" />
 
-## Connect
+## Compile
+```
+gcc test_sensor.c -lbluetooth -o test_sensor
+```
+
+## Usage
+root# ./test_sensor A4:C1:38:XX:XX:XX
+
+## hcitool
+
+### Connect
 ```
 root# hcitool lecc A4:C1:38:XX:XX:XX
 Connection handle 64
 root#
 ```
 
-## Dump
+### Dump
 ```
 root#  hcidump -X
 HCI sniffer - Bluetooth packet analyzer ver 2.5
@@ -22,7 +32,7 @@ root#
 Temperature: `0x08ad = 22.21℃`  
 Humidity: `0x31 = 49%`  
 
-## Disconnect
+### Disconnect
 ```
 root# hcitool ledc 64
 root#
