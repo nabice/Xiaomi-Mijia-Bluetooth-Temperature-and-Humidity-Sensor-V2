@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
     for(i = 0; i<10; i++) {
         memset(&buf, 0, sizeof(buf));
         result = read(dd, &buf, sizeof(buf));
-        if(result == 16 && buf[10] == 0x36) {
+        if(result == 16 && (buf[10] == 0x33 || buf[10] == 0x36)) {
             printf("%d %d\n", buf[12] | buf[13] << 8, buf[14]);
             break;
         }
